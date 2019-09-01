@@ -16,14 +16,20 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
 
   setSecret() {
-    this.http.get<any>('http://localhost:3000/setsecret/'+this.secret).subscribe(res => {
-          this.message = res.message
-        })
+    this.http.get<any>('http://localhost:3000/setsecret/' + this.secret).subscribe(res => {
+      this.message = res.message;
+    });
   }
 
   guessNumber() {
-    this.http.get<any>('http://localhost:3000/guess/'+this.number).subscribe(res => {
-          this.result = res.result
-        })
+    this.http.get<any>('http://localhost:3000/guess/' + this.number).subscribe(res => {
+      this.result = res.result;
+    });
+  }
+
+  backSetSecret() {
+    this.message = false;
+    this.result = null;
+    console.log(this.message);
   }
 }

@@ -1,0 +1,15 @@
+describe('codeBreak testing', function () {
+  it('CodeBreaker test', function () {
+    cy.visit('http://localhost:4200/')
+    cy.get('.secret')
+      .type('1234')
+    cy.get('.btnScret')
+      .click()
+    cy.contains('ok, let the game begins')
+    cy.get('.number')
+      .type('1234')
+    cy.get('.btnNumber')
+      .click()
+    cy.contains('XXXX')
+  })
+})

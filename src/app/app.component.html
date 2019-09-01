@@ -1,17 +1,22 @@
 
-
-<div>
-  <label>Ingresar secreto</label>
+<div class="container">
+<div *ngIf="!message">
+  <label class="label">Add secret</label>
   <input [(ngModel)]="secret" class="secret">
-  <button (click)="setSecret()" class="btnScret">Aceptar</button>
+  <button (click)="setSecret()" class="btnScret">Submit</button>
 </div>
 
-<span class="message">{{message}}</span>
-
-<div>
-  <label>Ingresar numero</label>
+<div *ngIf="message">
+  <label class="label">Add number</label>
   <input [(ngModel)]="number" class="number">
-  <button (click)="guessNumber()" class="btnNumber">Adivinar</button>
+  <button (click)="guessNumber()" class="btnNumber">Guess</button>
 </div>
 
-<span class="result">{{result}}</span>
+<button (click)="backSetSecret()" class="btnBack">Back to set secret</button>
+
+<div class="mess">
+  <span class="message" *ngIf="message">{{message}}</span>
+  <span class="result">{{result}}</span>
+</div>
+
+</div>
